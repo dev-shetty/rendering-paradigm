@@ -3,19 +3,109 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f3e7;
+  --foreground: #2c1810;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'RetroFont';
+  src: var(--font-rubik-mono);
+}
+
+.font-rubik {
+  font-family: var(--font-rubik-mono);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a373' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Retro-style focus outline */
+*:focus-visible {
+  outline: 4px solid #d4a373;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for a retro feel */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f3e7;
+  border-left: 4px solid #2c1810;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2c1810;
+  border: 3px solid #f8f3e7;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a373;
+}
+
+/* Retro card styling */
+.retro-card {
+  @apply bg-[#f8f3e7] p-6 border-4 border-[#2c1810];
+  position: relative;
+}
+
+.retro-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  height: 8px;
+  background: repeating-linear-gradient(
+    45deg,
+    #2c1810,
+    #2c1810 10px,
+    #d4a373 10px,
+    #d4a373 20px
+  );
+}
+
+/* Retro text selection */
+::selection {
+  background: #d4a373;
+  color: #2c1810;
+}
+
+/* Retro heading style */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-rubik-mono);
+  text-transform: uppercase;
+}
+
+/* Retro border pattern */
+.retro-border {
+  border-image: repeating-linear-gradient(
+    45deg,
+    #2c1810,
+    #2c1810 10px,
+    #d4a373 10px,
+    #d4a373 20px
+  ) 30;
+}
+
+/* Retro grid background */
+.retro-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, #d4a373 1px, transparent 1px),
+    linear-gradient(to bottom, #d4a373 1px, transparent 1px);
+  background-color: #f8f3e7;
+}
+
+/* Retro button hover effect */
+@keyframes button-hover {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
 }
