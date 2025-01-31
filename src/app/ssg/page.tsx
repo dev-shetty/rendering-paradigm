@@ -35,7 +35,7 @@ export default async function SSGPage() {
           <div className="mt-8">
             <p>Current Time:</p>
             <div className="p-4 border-2 border-[#2c1810] inline-block">
-              {new Date(time).toLocaleTimeString()}
+              {new Date(time).toLocaleString()}
             </div>
           </div>
 
